@@ -1,4 +1,5 @@
 import "./uiScript.js";
+import { renderEquation, renderResult } from "./uiScript.js";
 
 const allKeys = document.querySelectorAll(".key");
 const numberKeys = document.querySelectorAll(".number");
@@ -14,6 +15,20 @@ let result = 0;
 let operator = "";
 let activeNum = 1;
 
+function render() {
+  let symbol = getOperationSymbol();
+
+  if (symbol === "*") symbol = "x";
+
+  renderResult(num1);
+
+  if (symbol !== "ERROR" && num2 !== 0) {
+    renderEquation(`${num1}${symbol}${num2}`);
+  } else if (symbol !== "ERROR" && num2 === 0) {
+    renderEquation(`${num1}${symbol}`);
+  }
+}
+
 function addEventListeners() {
   // number keys
   for (const key of numberKeys) {
@@ -26,7 +41,7 @@ function addEventListeners() {
         num2 += parseInt(key.textContent);
       }
 
-      log();
+      render();
     });
   }
 
@@ -34,6 +49,7 @@ function addEventListeners() {
   deleteKey.addEventListener("click", () => {
     num1 /= 10;
     num1 = Math.floor(num1);
+    render();
     log();
   });
 
@@ -44,17 +60,21 @@ function addEventListeners() {
     result = 0;
     activeNum = 1;
     operator = "";
+    render();
     log();
   });
 
+  // operator keys
   for (const key of operatorKeys) {
     key.addEventListener("click", () => {
       operate();
       operator = key.getAttribute("ID");
+      render();
     });
   }
 
-  equalsKey.addEventListener("click", equal);
+  // equals key
+  equalsKey.addEventListener("click", operate);
 }
 
 function getOperationSymbol() {
@@ -86,11 +106,8 @@ function operate() {
   activeNum = 2;
   result = 0;
 
+  render();
   log();
-}
-
-function equal() {
-  operate();
 }
 
 function log() {

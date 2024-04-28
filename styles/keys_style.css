@@ -47,14 +47,16 @@
   color: var(--key-orange);
 }
 
-#equals {
+#equals,
+#delete {
   flex: 1;
   box-shadow: rgba(0, 0, 0, 0.48) 0 5px 5px;
 
   background-color: var(--background-orange);
 }
 
-#equals:hover {
+#equals:hover,
+#delete:hover {
   background-color: black;
   color: var(--background-orange);
 }
