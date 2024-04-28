@@ -1,0 +1,21 @@
+.display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+  text-align: right;
+  border-radius: 12px;
+  width: 100%;
+  flex: 1;
+}
+
+.display .equation {
+  font-size: 18px;
+  flex: 1;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.display .result {
+  flex: 1;
+  font-size: 45px;
+  color: white;
+}

@@ -1,0 +1,60 @@
+:root {
+  --background-orange: #f9ba46;
+  --key-orange: #a20000;
+}
+
+.keys {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.row {
+  display: flex;
+  gap: 1em;
+}
+
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 5px;
+  width: 75px;
+  height: 75px;
+  font-size: 1.5rem;
+
+  background-color: white;
+
+  transition: 0.2s;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.48) 0 5px 5px;
+
+  cursor: pointer;
+}
+
+.key:hover {
+  background-color: var(--background-orange);
+  color: black;
+}
+
+.key:active {
+  box-shadow: rgba(0, 0, 0, 0.222) 0 1px 5px;
+}
+
+.operator {
+  color: var(--key-orange);
+}
+
+#equals {
+  flex: 1;
+  box-shadow: rgba(0, 0, 0, 0.48) 0 5px 5px;
+
+  background-color: var(--background-orange);
+}
+
+#equals:hover {
+  background-color: black;
+  color: var(--background-orange);
+}
