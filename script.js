@@ -19,13 +19,20 @@ function render() {
   let symbol = getOperationSymbol();
 
   if (symbol === "*") symbol = "x";
+  if (symbol === "/") symbol = "÷";
 
-  renderResult(num1);
-
-  if (symbol !== "ERROR" && num2 !== 0) {
-    renderEquation(`${num1}${symbol}${num2}`);
-  } else if (symbol !== "ERROR" && num2 === 0) {
+  if (num2 !== 0) {
+    renderResult(activeNum === 1 ? num1 : num2);
+  } else {
+    renderResult(num1);
+  }
+  if (operator !== "") {
     renderEquation(`${num1}${symbol}`);
+  }
+
+  if (num1 === 0 && num2 === 0 && operator === "") {
+    renderEquation("");
+    renderResult(0);
   }
 }
 
@@ -41,6 +48,7 @@ function addEventListeners() {
         num2 += parseInt(key.textContent);
       }
 
+      log();
       render();
     });
   }
@@ -67,9 +75,8 @@ function addEventListeners() {
   // operator keys
   for (const key of operatorKeys) {
     key.addEventListener("click", () => {
-      operate();
       operator = key.getAttribute("ID");
-      render();
+      operate();
     });
   }
 
@@ -92,7 +99,7 @@ function getOperationSymbol() {
       return "/";
 
     default:
-      return "ERROR";
+      return "";
   }
 }
 
