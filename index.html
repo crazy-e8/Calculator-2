@@ -6,7 +6,13 @@
     <link rel="stylesheet" href="styles/main_style.css" />
     <link rel="stylesheet" href="styles/display_style.css" />
     <link rel="stylesheet" href="styles/keys_style.css" />
-    <script src="script.js" defer></script>
+
+    <link
+      rel="shortcut icon"
+      href="assets/icons/favicon.ico"
+      type="image/x-icon" />
+
+    <script type="module" src="script.js" defer></script>
     <title>Calculator - 2.0</title>
   </head>
   <body>
@@ -17,8 +23,7 @@
       </div>
       <div class="keys">
         <div class="row">
-          <button class="key operator" id="clear">AC</button>
-          <button class="key operator" id="delete">
+          <button class="key" id="delete">
             <svg
               viewBox="0 0 24 24"
               width="24"
@@ -35,29 +40,30 @@
               <line x1="12" y1="9" x2="18" y2="15"></line>
             </svg>
           </button>
-          <button class="key operator" id="modulo">%</button>
+          <button class="key" id="clear">AC</button>
+
           <button class="key operator" id="divide">÷</button>
         </div>
         <div class="row">
-          <button class="key" id="number7">7</button>
-          <button class="key" id="number8">8</button>
-          <button class="key" id="number9">9</button>
+          <button class="key number" id="number7">7</button>
+          <button class="key number" id="number8">8</button>
+          <button class="key number" id="number9">9</button>
           <button class="key operator" id="multiply">x</button>
         </div>
         <div class="row">
-          <button class="key" id="number4">4</button>
-          <button class="key" id="number5">5</button>
-          <button class="key" id="number6">6</button>
+          <button class="key number" id="number4">4</button>
+          <button class="key number" id="number5">5</button>
+          <button class="key number" id="number6">6</button>
           <button class="key operator" id="substract">-</button>
         </div>
         <div class="row">
-          <button class="key" id="number1">1</button>
-          <button class="key" id="number2">2</button>
-          <button class="key" id="number3">3</button>
+          <button class="key number" id="number1">1</button>
+          <button class="key number" id="number2">2</button>
+          <button class="key number" id="number3">3</button>
           <button class="key operator" id="add">+</button>
         </div>
         <div class="row">
-          <button class="key" id="number0">0</button>
+          <button class="key number" id="number0">0</button>
           <button class="key" id="dot">.</button>
           <button class="key" id="equals">=</button>
         </div>
